@@ -52,8 +52,9 @@ def handle_message(event):
             mark = 1
             
     if '\n' in response:
-        message.append( answer(response)[0] ) # answer(response) = [flex_message1, flex_message2]
-        message.append( answer(response)[1] )
+        result = answer(response) # answer(response) = [flex_message1, flex_message2]
+        message.append( result[0] ) 
+        message.append( result[1] )
         mark = 1
     
     if mark == 0:
