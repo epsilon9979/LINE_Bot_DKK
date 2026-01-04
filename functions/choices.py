@@ -65,13 +65,18 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                     {
                         "type": "text",
                         "text": random_options[0][1],
-                        "color": "#000000",
                         "margin": "md",
+                        "color": "#000000",
                         "wrap": True
-                    },
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
                     {
                         "type": "separator",
-                        "margin": "md",
                         "color": "#000000"
                     },
                     {
@@ -80,10 +85,11 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                         "type": "message",
                         "label": "Select",
                         "text": f"{data[3]}-{id_mem}\nA"
-                        }
+                        },
+                        "offsetTop": "xs"
                     }
                     ],
-                    "paddingBottom": "xs"
+                    "paddingAll": "xs"
                 }
                 },
                 {
@@ -100,13 +106,18 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                     {
                         "type": "text",
                         "text": random_options[1][1],
-                        "color": "#000000",
                         "margin": "md",
+                        "color": "#000000",
                         "wrap": True
-                    },
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
                     {
                         "type": "separator",
-                        "margin": "md",
                         "color": "#000000"
                     },
                     {
@@ -115,10 +126,11 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                         "type": "message",
                         "label": "Select",
                         "text": f"{data[3]}-{id_mem}\nB"
-                        }
+                        },
+                        "offsetTop": "xs"
                     }
                     ],
-                    "paddingBottom": "xs"
+                    "paddingAll": "xs"
                 }
                 },
                 {
@@ -135,13 +147,18 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                     {
                         "type": "text",
                         "text": random_options[2][1],
-                        "color": "#000000",
                         "margin": "md",
+                        "color": "#000000",
                         "wrap": True
-                    },
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
                     {
                         "type": "separator",
-                        "margin": "md",
                         "color": "#000000"
                     },
                     {
@@ -150,10 +167,11 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                         "type": "message",
                         "label": "Select",
                         "text": f"{data[3]}-{id_mem}\nC"
-                        }
+                        },
+                        "offsetTop": "xs"
                     }
                     ],
-                    "paddingBottom": "xs"
+                    "paddingAll": "xs"
                 }
                 },
                 {
@@ -170,13 +188,18 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                     {
                         "type": "text",
                         "text": random_options[3][1],
-                        "color": "#000000",
                         "margin": "md",
+                        "color": "#000000",
                         "wrap": True
-                    },
+                    }
+                    ]
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
                     {
                         "type": "separator",
-                        "margin": "md",
                         "color": "#000000"
                     },
                     {
@@ -185,12 +208,13 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
                         "type": "message",
                         "label": "Select",
                         "text": f"{data[3]}-{id_mem}\nD"
-                        }
+                        },
+                        "offsetTop": "xs"
                     }
                     ],
-                    "paddingBottom": "xs"
+                    "paddingAll": "xs"
                 }
-                },
+                }
             ]
             }
     )
