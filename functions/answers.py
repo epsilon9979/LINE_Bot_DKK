@@ -71,6 +71,7 @@ def answer(response):
                         "gravity": "bottom",
                         "margin": "none",
                         "style": "primary",
+                        "color": border_color,
                         "height": "md",
                         "offsetTop": "none",
                         "offsetStart": "none"
