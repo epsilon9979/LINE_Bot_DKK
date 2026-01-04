@@ -11,7 +11,7 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
     for i in range(0,4):
         orin_option = options.pop( random.randint(0, len(options)-1) )
         random_options[i] = orin_option.split(")")
-    orin_answer = data[1][6]
+    orin_answer = data[1][6].split("：")[1].strip().split(")")[0]
     for key, value in random_options.items():
         if orin_answer in value:
             answer = ["A", "B", "C", "D"][key]
