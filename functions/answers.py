@@ -105,10 +105,10 @@ def answer(response):
                     "contents": [
                     {
                         "type": "text",
-                        "text": "If you were in this situation, \n what should you do?",
+                        "text": "If you were in this situation, \nwhat should you do?",
                         "color": text_color,
                         "wrap": True,
-                        "size": "lg" #####
+                        "size": "xl" #####
                     }
                     ],
                     "borderColor": border_color,
@@ -130,7 +130,7 @@ def answer(response):
                         "text": response_method,
                         "wrap": True,
                         "color": "#FFFFFF",
-                        "size": "sm" #####
+                        "size": "md" #####
                     }
                     ],
                     "borderColor": border_color,
