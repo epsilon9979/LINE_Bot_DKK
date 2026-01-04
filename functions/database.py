@@ -13,8 +13,8 @@ class record:
         try:
             service_account_info = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"])
             scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-            creds = Credentials.from_service_account_info(service_account_info, scopes=scopes)
-            # creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
+            creds = Credentials.from_service_account_info(service_account_info, scopes=scopes) #(讀環境變數)
+            # creds = Credentials.from_service_account_file("credentials.json", scopes=scopes) #(讀路徑檔案)
             client = gspread.authorize(creds)
             sheet_id = "1TIV5rHSUcdhBnR2mdUHWgbA-UGW76Nx7mvWPOaPptnw"
             cursor = client.open_by_key(sheet_id)

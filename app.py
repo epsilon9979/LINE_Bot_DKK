@@ -16,7 +16,7 @@ load_dotenv()
 app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv('Channel_Access_Token'))
 line_handler = WebhookHandler(os.getenv('Channel_Secret'))
-category = ['基隆','新北市','臺北市','桃園市','新竹','苗栗縣','臺中市','彰化縣','南投縣','雲林縣','嘉義','臺南市','高雄市','屏東縣','臺東縣','花蓮縣','宜蘭縣','連江縣','金門縣','澎湖縣','國際議題','能源議題','防災資訊']
+category = ['Start'] #['基隆','新北市','臺北市','桃園市','新竹','苗栗縣','臺中市','彰化縣','南投縣','雲林縣','嘉義','臺南市','高雄市','屏東縣','臺東縣','花蓮縣','宜蘭縣','連江縣','金門縣','澎湖縣','國際議題','能源議題','防災資訊']
 # Your user ID
 # line_bot_api.push_message(os.getenv('User_ID'), TextSendMessage(text='他媽的終於成功了'))
 
@@ -45,14 +45,15 @@ def handle_message(event):
     message=[]
     for item in category:
         if item == response:
-            product_1 = question(item)
+            product_1 = question(item) # product_1 = [TextSendMessage(text = description), result, which_table, item] #which_table是英文，item是中文
             message.append(product_1[0])
-            if product_1[2] != "empty":
-                message.append(choice(product_1)) 
+            if product_1[2] != "empty":  
+                message.append(choice(product_1)) # choice(product_1) = template_message
             mark = 1
             
     if '\n' in response:
-        message.append( answer(response) )
+        message.append( answer(response)[0] ) # answer(response) = [flex_message1, flex_message2]
+        message.append( answer(response)[1] )
         mark = 1
     
     if mark == 0:
