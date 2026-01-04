@@ -106,6 +106,7 @@ def answer(response):
                     {
                         "type": "text",
                         "text": "If you were in this situation, \nwhat should you do?",
+                        "weight": "bold",
                         "color": text_color,
                         "wrap": True,
                         "size": "xl" #####
@@ -138,7 +139,7 @@ def answer(response):
                     "margin": "sm"
                 }
                 ],
-                "borderColor": "#22FF00",
+                "borderColor": border_color,
                 "borderWidth": "medium",
                 "backgroundColor": "#000000",
                 "paddingAll": "md",
