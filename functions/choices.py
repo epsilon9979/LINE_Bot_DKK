@@ -44,18 +44,155 @@ def choice(data): # data = [TextSendMessage(questions), (id, questions, optionA,
     question_2 = (id_mem, data[1][1], random_options[0][1], random_options[1][1], random_options[2][1],
                   random_options[3][1], answer, data[1][7], data[1][8], now, data[1][10])
     database.append(cursor, cnx, question_2, "Memory")
-
-    #輪播範本訊息進行題目呈現
-    template_message = TemplateSendMessage(
-        alt_text = "pick up a correct option",
-        template = {
+    
+    # 輪播範本訊息進行題目呈現
+    template_message = FlexSendMessage(
+        alt_text="pick up a correct option",
+        contents={
             "type": "carousel",
-            "columns":[
-                {"title": "A", "text": random_options[0][1], "actions": [{"type": "message", "label": "Select", "text": f"{data[3]}-{id_mem}\nA"}] },
-                {"title": "B", "text": random_options[1][1], "actions": [{"type": "message", "label": "Select", "text": f"{data[3]}-{id_mem}\nB"}] },
-                {"title": "C", "text": random_options[2][1], "actions": [{"type": "message", "label": "Select", "text": f"{data[3]}-{id_mem}\nC"}] },
-                {"title": "D", "text": random_options[3][1], "actions": [{"type": "message", "label": "Select", "text": f"{data[3]}-{id_mem}\nD"}] }
+            "contents": [
+                {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "A",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "text",
+                        "text": random_options[0][1],
+                        "color": "#000000",
+                        "margin": "md",
+                        "wrap": True
+                    },
+                    {
+                        "type": "separator",
+                        "margin": "md",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "button",
+                        "action": {
+                        "type": "message",
+                        "label": "Select",
+                        "text": f"{data[3]}-{id_mem}\nA"
+                        }
+                    }
+                    ],
+                    "paddingBottom": "xs"
+                }
+                },
+                {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "B",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "text",
+                        "text": random_options[1][1],
+                        "color": "#000000",
+                        "margin": "md",
+                        "wrap": True
+                    },
+                    {
+                        "type": "separator",
+                        "margin": "md",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "button",
+                        "action": {
+                        "type": "message",
+                        "label": "Select",
+                        "text": f"{data[3]}-{id_mem}\nB"
+                        }
+                    }
+                    ],
+                    "paddingBottom": "xs"
+                }
+                },
+                {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "C",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "text",
+                        "text": random_options[2][1],
+                        "color": "#000000",
+                        "margin": "md",
+                        "wrap": True
+                    },
+                    {
+                        "type": "separator",
+                        "margin": "md",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "button",
+                        "action": {
+                        "type": "message",
+                        "label": "Select",
+                        "text": f"{data[3]}-{id_mem}\nC"
+                        }
+                    }
+                    ],
+                    "paddingBottom": "xs"
+                }
+                },
+                {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "D",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "text",
+                        "text": random_options[3][1],
+                        "color": "#000000",
+                        "margin": "md",
+                        "wrap": True
+                    },
+                    {
+                        "type": "separator",
+                        "margin": "md",
+                        "color": "#000000"
+                    },
+                    {
+                        "type": "button",
+                        "action": {
+                        "type": "message",
+                        "label": "Select",
+                        "text": f"{data[3]}-{id_mem}\nD"
+                        }
+                    }
+                    ],
+                    "paddingBottom": "xs"
+                }
+                },
             ]
-        }
+            }
     )
+    
     return template_message
