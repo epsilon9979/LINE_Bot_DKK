@@ -10,12 +10,12 @@ def answer(response):
     cursor, cnx = database.setting()
     #避免有玩家回去點選已作答的題目
     if (id_mem,) not in database.fetch(cursor, cnx, "Memory", 'id', None)[0]: #[[(1,), (2,), (3,)...]]
-        return TextSendMessage(text = f"已超過作答時間") 
+        return [TextSendMessage(text = f"已超過作答時間"), 0]
     question_2 = database.fetch(cursor, cnx, "Memory", '*', f'id={id_mem}') # question_2 = [(id, questions, optionA, optionB, optionC, optionD, answer, explaintion, date, time, url)]
     explanation, response_method  = question_2[0][7].split("&&&")
     # 確認是否超過作答時間
     if datetime.now() - question_2[0][9] > timedelta(seconds=60):
-        return TextSendMessage(text = f"已超過作答時間")
+        return [TextSendMessage(text = f"已超過作答時間"), 0]
     database.delete(cursor, cnx, "Memory", f"id={id_mem}") #刪除臨時性作答紀錄
     
     #Flex Message進行題目呈現
@@ -37,7 +37,7 @@ def answer(response):
                 "layout": "vertical",
                 "contents": [
                 {"type": "text", "text": text_top, "weight": "bold", "color": text_color, "size": "xxl"},
-                {"type": "text", "text": f"The correct answer is {question_2[0][6]}", "weight": "bold", "size": "xxl", "margin": "md", "color": text_color},
+                {"type": "text", "text": f"Correct answer: {question_2[0][6]}", "weight": "bold", "size": "xxl", "margin": "md", "color": text_color},
                 {"type": "separator", "margin": "lg", "color": border_color},
                 {"type": "box", "layout": "vertical","contents": [{
                         "type": "text",
