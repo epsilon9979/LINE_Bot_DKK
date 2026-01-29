@@ -97,8 +97,8 @@ def answer(response):
         }
     )
     
-    if response_method == "empty":
-        return [flex_message1, "empty"]
+    if response_method == 0:
+        return [flex_message1, 0]
     
     # Flex Message進行應對方法呈現
     flex_message2 = FlexSendMessage(
