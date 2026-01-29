@@ -17,11 +17,11 @@ def answer(response):
         explanation, response_method  = question_2[0][7].split("&&&")
     else:
         explanation = question_2[0][7]
-        response_method = "empty"
+        response_method = 0
         
     # 確認是否超過作答時間
     if datetime.now() - question_2[0][9] > timedelta(seconds=60):
-        return [TextSendMessage(text = f"已超過作答時間"), "empty"]
+        return [TextSendMessage(text = f"已超過作答時間"), 0]
     database.delete(cursor, cnx, "Memory", f"id={id_mem}") #刪除臨時性作答紀錄
     
     #Flex Message進行題目呈現

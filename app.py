@@ -52,8 +52,8 @@ def handle_message(event):
             mark = 1
             
     if '\n' in response:
-        result = answer(response) # answer(response) = [TextSendMessage(text = f"已超過作答時間"), "empty"] or [flex_message1, "empty"] or [flex_message1, flex_message2]
-        if result[1] == "empty":
+        result = answer(response) # answer(response) = [TextSendMessage(text = f"已超過作答時間"), 0] or [flex_message1, 0] or [flex_message1, flex_message2]
+        if result[1] == 0:
             message.append(result[0])
         else:
             message.append(result[0])
