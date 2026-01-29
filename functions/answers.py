@@ -13,7 +13,7 @@ def answer(response):
     if (id_mem,) not in database.fetch(cursor, cnx, "Memory", 'id', None)[0]: #[[(1,), (2,), (3,)...]]
         return [TextSendMessage(text = f"已超過作答時間"), 0]
     question_2 = database.fetch(cursor, cnx, "Memory", '*', f'id={id_mem}') # question_2 = [(id, questions, optionA, optionB, optionC, optionD, answer, explaintion, date, time, url)]
-    if "%%%" in question_2[0][7]:
+    if "&&&" in question_2[0][7]:
         explanation, response_method  = question_2[0][7].split("&&&")
     else:
         explanation = question_2[0][7]
