@@ -12,7 +12,7 @@ def question(item):
                     'Yilan', 'Lienchiang', 'Kinmen', 'Penghu', 'international','energy','disaster', 'disaster'][index]
     if which_table not in database.show_tables(cursor) or database.fetch(cursor, cnx, which_table, "id", None)[0]==[]:
         product = f"目前沒有 {item} 的相關題目"
-        return [TextSendMessage(text=product), "empty", "empty"]
+        return [TextSendMessage(text=product), "empty", "empty", "empty"]
     
     existed_id = database.fetch(cursor, cnx, which_table, 'id', None)[0] #[[(1,), (2,), (3,)...]]
     number = random.choice(existed_id)[0]
