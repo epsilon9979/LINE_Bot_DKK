@@ -20,7 +20,7 @@ def answer(response):
         response_method = 0
         
     # 確認是否超過作答時間
-    if datetime.now() - question_2[0][9] > timedelta(seconds=60):
+    if datetime.now() - question_2[0][9] > timedelta(seconds=300):
         return [TextSendMessage(text = f"Time limit exceeded"), 0]
     database.delete(cursor, cnx, "Memory", f"id={id_mem}") #刪除臨時性作答紀錄
     
