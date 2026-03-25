@@ -16,7 +16,7 @@ class record:
             creds = Credentials.from_service_account_info(service_account_info, scopes=scopes) #(讀環境變數)
             # creds = Credentials.from_service_account_file("credentials.json", scopes=scopes) #(讀路徑檔案)
             client = gspread.authorize(creds)
-            sheet_id = "1Szzqn_vFwKrYThe-QMsrxzg2SwHOE2-R9MVN5j_vbzo"
+            sheet_id = "1TIV5rHSUcdhBnR2mdUHWgbA-UGW76Nx7mvWPOaPptnw" # backup:"1Szzqn_vFwKrYThe-QMsrxzg2SwHOE2-R9MVN5j_vbzo"
             cursor = client.open_by_key(sheet_id)
         except Exception as e:
             print("發生錯誤,因為:", e)
