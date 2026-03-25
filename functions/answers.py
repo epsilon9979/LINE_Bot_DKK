@@ -73,7 +73,7 @@ def answer(response):
                     },
                     {
                         "type": "button",
-                        "action": {"type": "uri", "label": "Source Information", "uri": question_2[0][10]},
+                        "action": {"type": "uri", "label": "Source Information", "url": question_2[0][10]},
                         "gravity": "bottom",
                         "margin": "none",
                         "style": "primary",
